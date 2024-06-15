@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+  </head>
+
+  <body>
+    <h1>Login</h1>
+    <!-- <p th:if="${isWrong}" style="color: red;">Wrong username or password!</p> -->
+
+    <form action="/login" method="post">
+      <label for="username">ユーザーネーム</label>
+      <br />
+      <input id="username" name="username" type="text" />
+      <br /><br />
+      <label for="password">パスワード</label>
+      <br />
+      <input id="password" name="password" type="password" />
+      <br /><br />
+      <button type="submit">Login</button>
+    </form>
+    <a href="/register">Do not have an account?</a>
+  </body>
+</html>

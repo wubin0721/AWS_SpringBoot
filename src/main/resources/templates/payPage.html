@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>payPage</title>
+  <link
+      rel="stylesheet"
+      th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+    />
+
+  <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+  <script th:src="@{search.js}"></script>
+</head>
+
+<style>
+  #div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<body>
+
+<div class="user_details" style="display: inline-block;float:right">
+  <form th:action="@{/userDetail}" method="get" style="display: inline-block;">
+      <button class="user_details_name" style="display: inline-block;" th:text="${userName}"></button>
+  </form>
+  <form th:action="@{/logout}" method="post" style="display: inline-block;">
+    <button type="submit" class="user_details_out btn btn-primary btn-lg" style="display: inline-block;">登出</button>
+  </form>
+  <!-- <div >登出</div> -->
+</div>
+
+  <div id="div1">
+    <form action="/paymentDetail" method="post">
+      <div
+        style="display: inline-block;margin:auto;padding:auto;border: 3px;border-color: red;border-style: solid;text-align: center;">
+        <div style="background-color:blue;">
+          <button type="button">
+            返回
+          </button>
+          <div style="display: inline-block;color: azure;">
+            付款界面
+          </div>
+        </div>
+        </br>
+        <div >
+          <span th:text="|航班价格 = ${flight.price}|"></span>
+          <span th:text="|航班号 = ${flight.airNo}|"></span>
+        </div>
+        <input name="id" th:value="${flight.id}" type="hidden">
+        </br>
+        <select name="payMethod">
+          <option value="0" selected>请选择支付方式</option>
+          <option value="1">支付宝</option>
+          <option value="2">微信支付</option>
+        </select>
+
+        </br>
+        </br>
+        <button type="submit">确认</button>
+
+      </div>
+    </form>
+
+  </div>
+</body>
+
+</html>

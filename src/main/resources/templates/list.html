@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- CSS読み込み -->
+    <link
+      rel="stylesheet"
+      th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+    />
+    <!-- JS読み込み -->
+    <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div>
+      <a href="/">返回</a>
+    </div>
+
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">出発地</th>
+            <th scope="col">目的地</th>
+            <th scope="col">起飛時間</th>
+            <th scope="col">到達時間</th>
+            <th scope="col">是否直飛</th>
+            <th scope="col">票價</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="flight : ${list}">
+            <td th:text="${flight.departure}"></td>
+            <td th:text="${flight.arrival}"></td>
+            <td th:text="${flight.startTime}"></td>
+            <td th:text="${flight.endTime}"></td>
+            <td th:text="${flight.isDirectFlight}"></td>
+            <td th:text="${flight.price}"></td>
+            <td><a th:href="@{/payPage(id=${flight.id})}">購入</a>
+            </td>
+          </tr>
+          <tr th:if="${#lists.isEmpty(list)}">
+            <td>查无此票</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

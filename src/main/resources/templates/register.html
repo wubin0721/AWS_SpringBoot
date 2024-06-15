@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register</title>
+  </head>
+
+  <body>
+    <h1>Register</h1>
+
+    <form action="/register" method="post">
+      <label for="username">ユーザーネーム</label>
+      <br />
+      <input id="username" name="username" type="text" />
+      <p style="color: red">
+        <span th:if="${isRepeat}">用户名已存在</span>
+      </p>
+
+      <label for="password">パスワード</label>
+      <br />
+      <input id="password" name="password" type="password" />
+      <br /><br />
+
+      <button type="submit">register</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ 
+     <table>
+      <thead>
+        <tr>
+          <th colspan="2">用户详情</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>用户名</th>
+          <th th:text="${userName}"></th>
+        </tr>
+      </tbody>
+    </table>
+
+ <div class="container">
+     <table class="table">
+         <thead>
+         <tr>
+             <th scope="col">出発地</th>
+             <th scope="col">目的地</th>
+             <th scope="col">起飛時間</th>
+             <th scope="col">到達時間</th>
+             <th scope="col">是否直飛</th>
+             <th scope="col">票價</th>
+             <th scope="col"></th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr th:each="orderInfo : ${orderInfos}">
+             <td th:text="${orderInfo.flight.departure}"></td>
+             <td th:text="${orderInfo.flight.arrival}"></td>
+             <td th:text="${orderInfo.flight.startTime}"></td>
+             <td th:text="${orderInfo.flight.endTime}"></td>
+             <td th:text="${orderInfo.flight.isDirectFlight}"></td>
+             <td th:text="${orderInfo.flight.price}"></td>
+             </td>
+         </tr>
+         <tr th:if="${#lists.isEmpty(orderInfos)}">
+             <td>你没有购买的机票</td>
+         </tr>
+         </tbody>
+     </table>
+ </div>
+     <div class="button-container">
+         <!-- <a href="/">返回</a> -->
+         <button class="button" onclick="location.replace('/')">返回</button>
+     </div>
+</body>
+</html>

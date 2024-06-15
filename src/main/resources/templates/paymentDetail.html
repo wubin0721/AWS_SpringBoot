@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>航班信息</title>
+    <style>
+      /* 样式可以根据需要进行调整 */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+      .button {
+        padding: 10px 20px;
+        background-color: #0074d9;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">航班详情</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>订单号</th>
+          <th th:text="${orderInfo.orderNo}"></th>
+        </tr>
+
+        <tr>
+          <th>起飞时间</th>
+          <th th:text="${orderInfo.flight.departureDate}"></th>
+        </tr>
+
+        <tr>
+          <th>到达时间</th>
+          <th th:text="${orderInfo.flight.arrivalDate}"></th>
+        </tr>
+
+        <tr>
+          <th>起飞地点</th>
+          <th th:text="${orderInfo.flight.departure}"></th>
+        </tr>
+
+        <tr>
+          <th>到达地点</th>
+          <th th:text="${orderInfo.flight.arrival}"></th>
+        </tr>
+        <!-- 添加更多航班信息行 -->
+      </tbody>
+    </table>
+
+    <div class="button-container">
+      <!-- <a href="/">返回</a> -->
+      <button class="button" onclick="location.replace('/')">返回</button>
+    </div>
+  </body>
+</html>

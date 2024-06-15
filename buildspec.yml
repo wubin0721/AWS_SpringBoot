@@ -1,0 +1,28 @@
+version: 0.2
+        
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    # steps:
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - ./mvnw clean package -DskipTests
+  post_build:
+    commands:
+      - mkdir artifacts
+      - cp target/LHP-SE-April-0.0.1-SNAPSHOT.jar artifacts
+      - cp deploy/appspec.yml artifacts
+      - cp deploy/start.sh artifacts
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - LHP-SE-April-0.0.1-SNAPSHOT.jar
+    - appspec.yml
+    - start.sh
+  base-directory: artifacts
