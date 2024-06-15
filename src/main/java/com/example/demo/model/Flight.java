@@ -15,6 +15,7 @@ import lombok.experimental.SuperBuilder;
 @Entity
 public class Flight {
 
+  //航班Id
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   public Long id;
